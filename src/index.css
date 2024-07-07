@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: #0b0b0b;
+}
+
+.app-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.neon-text {
+  font-size: 5rem;
+  color: #93fafc;
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  z-index: 3;
+  animation: neon-animation 1.5s ease-in-out infinite alternate;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 15px;
+}
+
+.custom-button {
+  border: 2px solid #93fafc;
+  background-color: transparent;
+  color: #93fafc;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #93fafc;
+  color: #0b0b0b;
+}
+
+.message-box {
+  color: #93fafc;
+  font-size: 50px;
+  opacity: 0;
+  animation: fade-in 1s forwards;
+  width: 60%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.message-text {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-style: italic;
+  margin-bottom: 8px;
+  font-weight: 200;
+}
+
+.gif-image {
+  width: 200px; /* Sesuaikan ukuran sesuai kebutuhan */
+  height: auto;
+  opacity: 0;
+  animation: fade-in 1s forwards; /* Animasi fade-in */
+}
+
+@keyframes neon-animation {
+  0% {
+    text-shadow: 0 0 5px #008b8b, 0 0 10px #008b8b, 0 0 15px #008b8b,
+      0 0 20px #008b8b;
+  }
+  100% {
+    text-shadow: 0 0 10px #008b8b, 0 0 20px #008b8b, 0 0 30px #008b8b,
+      0 0 40px #008b8b;
+  }
+}
+
+.fireworks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firework {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  animation: firework 2s ease-out infinite;
+  transform-origin: center;
+}
+
+.heart-svg {
+  width: 150px;
+  height: 150px;
+  opacity: 0;
+  animation: fade-up 10s linear infinite; /* Durasi animasi 10 detik dengan efek linear */
+}
+
+@keyframes firework {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  10% {
+    transform: scale(1.2);
+  }
+  20%,
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0.5); /* Mulai dari bawah layar dengan skala setengah */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Tampil di tengah layar dengan skala penuh */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) scale(0.5); /* Menghilang di atas layar dengan skala setengah */
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  animation: fade-out 1s forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 601px) {
+  /* Styles untuk perangkat mobile */
+  .neon-text {
+    font-size: 70px;
+    letter-spacing: 7px;
+  }
+
+  .message-box {
+    width: 80%;
+  }
+
+  .gif-image {
+    width: 300px; /* Sesuaikan ukuran sesuai kebutuhan untuk perangkat mobile */
+  }
+
+  .message-box {
+    font-size: 40px;
+  }
+}
